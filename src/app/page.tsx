@@ -1,6 +1,11 @@
-import Navbar from "@/sections/Navbar"
+import Navbar from "@/sections/Navbar";
+import Hero from "@/sections/Hero";
+
 export default function Home() {
-    return <div className="px-4 md:px-8 lg:px-16">
-        <Navbar />
-    </div>;
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+    </div>
+  );
 }
