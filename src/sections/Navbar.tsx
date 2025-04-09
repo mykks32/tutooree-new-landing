@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Logo from "@/assets/images/Tutoree.svg"
+import Logo from "@/assets/images/Tutoree.svg";
 import Button from "@/components/button";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -15,18 +16,16 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-50">
+    <header className="sticky top-0 z-50">
       <section className="flex justify-center py-4 lg:py-8 px-4 md:px-8 lg:px-16">
-        <div className="container max-w-7xl">
-          <div className="border border-white/15 rounded-3xl md:rounded-full overflow-hidden">
+        <div className="container mx-auto">
+          <div className="border bg-black border-white/15 rounded-3xl md:rounded-full overflow-hidden">
             {/* Top Navbar */}
             <div className="grid grid-cols-2 lg:grid-cols-3 px-4 py-2 md:pr-2 items-center">
               <div className="pl-4 items-center">
-                <Image
-                  src={Logo}
-                  alt="Logo"
-                  className="h-9 w-auto md:h-12"
-                />
+                <Link href="/">
+                  <Image src={Logo} alt="Logo" className="h-9 w-auto md:h-12" />
+                </Link>
               </div>
 
               <div className="hidden lg:flex justify-center gap-6 font-medium">

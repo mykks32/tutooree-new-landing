@@ -14,8 +14,8 @@ export default function Home() {
       <Hero />
       {/* <LogoTicker /> */}
       <Introduction />
-      <Features />
-      <Faqs />
+      <Features id="features" />
+      <Faqs id="faqs" />
       <CallToAction />
       <Footer />
     </div>

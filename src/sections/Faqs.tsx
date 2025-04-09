@@ -45,7 +45,7 @@ const faqs = [
   },
 ];
 
-export default function Faqs() {
+export default function Faqs({ id }: { id: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
@@ -53,7 +53,7 @@ export default function Faqs() {
   };
 
   return (
-    <section className="mt-24">
+    <section id={id} className="mt-24">
       <div className="container max-w-5xl mx-auto px-4 md:px-8 lg:px-16">
         <div className="flex justify-center">
           <Tag>FAQs</Tag>
