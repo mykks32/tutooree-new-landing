@@ -30,7 +30,7 @@ export default function Hero() {
         </h1>
         <p className="text-center text-xl text-white/50 mt-8 md:max-w-2xl mx-auto">
           Tutooree connects you with expert tutors who are ready to help you
-          excel. Whether you're looking for academic support or specialized
+          excel. Whether you&apos;re looking for academic support or specialized
           coaching, we make it simple to find the right match for your needs.
         </p>
         <form className="flex border border-white/15 rounded-full p-2 mt-8 max-w-lg justify-center mx-auto focus-within:ring-1">
