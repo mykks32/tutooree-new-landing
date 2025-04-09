@@ -56,12 +56,13 @@ export default function Faqs() {
               <div className="flex justify-between">
                 <h3 className="text-lg font-medium">{faq.question}</h3>
                 <button
-                  className="text-lime-400 font-black"
+                  className="text-lime-400 font-medium text-4xl"
                   onClick={() => {
                     toggle(index);
                   }}
                 >
-                  &#10005;
+                  {/* &#10005; */}
+                  {openIndex===index ? "x" : "+"}
                 </button>
               </div>
               {openIndex === index && (
