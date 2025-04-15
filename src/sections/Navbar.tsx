@@ -5,6 +5,8 @@ import { useState } from "react";
 import Logo from "@/assets/images/Tutoree.svg";
 import Button from "@/components/button";
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
+import { AnimatePresence, motion } from 'motion/react'
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -16,10 +18,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50">
+    <>
+    <header className="fixed w-full top-0 z-50">
       <section className="flex justify-center py-4 lg:py-8 px-4 md:px-8 lg:px-16">
         <div className="container mx-auto">
-          <div className="border bg-black border-white/15 rounded-3xl md:rounded-full overflow-hidden">
+          <div className="border bg-neutral-950/70 backdrop-blur border-white/15 rounded-[27px] md:rounded-full overflow-hidden">
             {/* Top Navbar */}
             <div className="grid grid-cols-2 lg:grid-cols-3 px-4 py-2 md:pr-2 items-center">
               <div className="pl-4 items-center">
@@ -57,9 +60,33 @@ export default function Navbar() {
                     strokeLinejoin="round"
                     className="feather feather-menu"
                   >
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
+                    <line
+                      x1="3"
+                      y1="6"
+                      x2="21"
+                      y2="6"
+                      className={twMerge(
+                        "origin-left transition",
+                        menuOpen && "rotate-45 -translate-y-1"
+                      )}
+                    />
+                    <line
+                      x1="3"
+                      y1="12"
+                      x2="21"
+                      y2="12"
+                      className={twMerge("transition", menuOpen && "opacity-0")}
+                    />
+                    <line
+                      x1="3"
+                      y1="18"
+                      x2="21"
+                      y2="18"
+                      className={twMerge(
+                        "origin-left transition",
+                        menuOpen && "-rotate-45 translate-y-1"
+                      )}
+                    />
                   </svg>
                 </button>
 
@@ -80,8 +107,14 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu inside border box */}
+            <AnimatePresence>
             {menuOpen && (
-              <div className="md:hidden bg-neutral-900 border-t border-white/10">
+              <motion.div
+              initial={{ height: 0}}
+              animate={{height: "auto"}}
+              exit={{height: 0}}
+
+              className="md:hidden overflow-hidden">
                 <nav className="flex flex-col items-center py-4 gap-4">
                   {navLinks.map((nav, index) => (
                     <a
@@ -99,11 +132,16 @@ export default function Navbar() {
                     Sign Up
                   </Button>
                 </nav>
-              </div>
+              </motion.div>
             )}
+            </AnimatePresence>
           </div>
         </div>
       </section>
     </header>
+    <div className="pb-[84px] md:pb-[96px] lg:pb-[140px]">
+
+    </div>
+    </>
   );
 }
