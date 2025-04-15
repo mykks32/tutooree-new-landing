@@ -14,7 +14,7 @@ const features = [
 
 export default function Features({ id }: { id: string }) {
   return (
-    <section id={id} className="py-10">
+    <section id={id} className="pt-32">
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
         <div className="flex justify-center">
           <Tag>Features</Tag>

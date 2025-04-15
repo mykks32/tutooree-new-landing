@@ -55,7 +55,7 @@ export default function Faqs({ id }: { id: string }) {
   };
 
   return (
-    <section id={id} className="mt-24">
+    <section id={id} className="pt-32">
       <div className="max-w-full md:max-w-9/12 lg:max-w-9/12 mx-auto px-4 md:px-8 lg:px-16">
         <div className="flex justify-center">
           <Tag>FAQs</Tag>
