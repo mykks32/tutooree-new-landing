@@ -1,6 +1,8 @@
 "use client";
 import Tag from "@/components/tag";
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { AnimatePresence, motion } from "motion/react";
 
 const faqs = [
   {
@@ -68,20 +70,59 @@ export default function Faqs({ id }: { id: string }) {
               key={index}
               className="border border-white/15 rounded-2xl px-6 py-4 bg-neutral-900"
             >
-              <div className="flex justify-between">
+              <div className="flex justify-between transition duration-500">
                 <h3 className="text-lg font-medium">{faq.question}</h3>
-                <button
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={twMerge(
+                    "feather feather-plus text-lime-400 font-medium text-4xl transition duration-500",
+                    openIndex === index && "rotate-45"
+                  )}
+                  onClick={() => {
+                    toggle(index);
+                  }}
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                {/* <button
                   className="text-lime-400 font-medium text-4xl"
                   onClick={() => {
                     toggle(index);
                   }}
                 >
                   {openIndex === index ? "x" : "+"}
-                </button>
+                </button> */}
               </div>
-              {openIndex === index && (
-                <p className="text-neutral-400 mt-4">{faq.answer}</p>
-              )}
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{
+                      height: 0,
+                      marginTop: 0,
+                    }}
+                    animate={{
+                      height: "auto",
+                      marginTop: 24,
+                    }}
+                    exit={{
+                      height: 0,
+                      marginTop: 0,
+                    }}
+                    className={twMerge("mt-6 overflow-hidden")}
+                  >
+                    <p className="text-neutral-400">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
