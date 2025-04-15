@@ -71,9 +71,11 @@ export default function Features({ id }: { id: string }) {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="border border-white/15 px-3 py-1.5 rounded-2xl bg-neutral-900 inline-flex items-center justify-center gap-3"
+              className="border border-white/15 px-3 py-1.5 rounded-2xl
+              bg-neutral-900 inline-flex items-center justify-center gap-3
+              hover:scale-105 hover:-rotate-3 transition duration-500 group"
             >
-              <span className="bg-lime-400 text-neutral-950 size-5 rounded-full inline-flex justify-center items-center text-xl">
+              <span className="bg-lime-400 text-neutral-950 size-5 rounded-full inline-flex justify-center items-center text-xl group-hover:rotate-45 transition duration-500">
                 &#10038;
               </span>
               <span className="font-medium">{feature}</span>
