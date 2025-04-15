@@ -41,7 +41,7 @@ export default function Hero() {
         { opacity: 1 },
         { duration: 0.5, delay: 1.5 },
       ],
-      [rightPointerScope.current, { y: 0, x: 300 }, { duration: 0.5 }],
+      [rightPointerScope.current, { y: 0, x: 200 }, { duration: 0.5 }],
       [
         rightPointerScope.current,
         { x: 0, y: [0, 64, 0] },
@@ -89,7 +89,7 @@ export default function Hero() {
 
         <motion.div
           ref={rightPointerScope}
-          initial={{ opacity: 0, y: 200, x: 400 }}
+          initial={{ opacity: 0, y: 200, x: 300 }}
           className="absolute right-54 hidden lg:block"
         >
           <Pointer name="Yadav" color="red" />
