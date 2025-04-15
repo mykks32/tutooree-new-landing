@@ -1,8 +1,8 @@
 "use client";
 
 import Button from "@/components/button";
-import designExample1Image from "@/assets/images/design-example-1.png";
-import designExample2Image from "@/assets/images/design-example-2.png";
+import designExample1Image from "@/assets/images/design1.jpg";
+import designExample2Image from "@/assets/images/design2.jpg";
 import Image from "next/image";
 import Pointer from "@/components/pointer";
 import { motion, useAnimate } from "motion/react";
@@ -42,7 +42,7 @@ export default function Hero() {
         { opacity: 1 },
         { duration: 0.5, delay: 1.5 },
       ],
-      [rightPointerScope.current, { y: 0, x: 200 }, { duration: 0.5 }],
+      [rightPointerScope.current, { y: 0, x: 300 }, { duration: 0.5 }],
       [
         rightPointerScope.current,
         { x: 0, y: [0, 64, 0] },
@@ -60,12 +60,14 @@ export default function Hero() {
           ref={leftDesignScope}
           initial={{ opacity: 0, y: 100, x: -100 }}
           drag
-          className="absolute -left-64 top-16 hidden lg:block"
+          className="absolute -left-64 top-16 hidden lg:block border border-white/50"
         >
           <Image
             src={designExample1Image}
             draggable="false"
             alt="design example 1"
+            height={439}
+            width={310}
           />
         </motion.div>
 
@@ -73,12 +75,14 @@ export default function Hero() {
           ref={rightDesignScope}
           initial={{ opacity: 0, y: 200, x: 100 }}
           drag
-          className="absolute -top-16 -right-96 hidden lg:block"
+          className="absolute -top-16 -right-96 hidden lg:block border border-white/50"
         >
           <Image
             src={designExample2Image}
             draggable="false"
             alt="design example 2"
+            height={564}
+            width={400}
           />
         </motion.div>
 
@@ -92,7 +96,7 @@ export default function Hero() {
 
         <motion.div
           ref={rightPointerScope}
-          initial={{ opacity: 0, y: 200, x: 300 }}
+          initial={{ opacity: 0, y: 200, x: 400 }}
           className="absolute right-54 hidden lg:block"
         >
           <Pointer name="Yadav" color="red" />
