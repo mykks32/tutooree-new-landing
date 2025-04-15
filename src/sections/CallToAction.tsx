@@ -1,6 +1,5 @@
 "use client";
 
-import { time } from "console";
 import { motion, useAnimate, AnimationPlaybackControls } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
