@@ -36,7 +36,11 @@ export default function Hero() {
     ]);
 
     rightPointerAnimate([
-      [rightPointerScope.current, { opacity: 1 }, { duration: 0.5, delay: 1.5 }],
+      [
+        rightPointerScope.current,
+        { opacity: 1 },
+        { duration: 0.5, delay: 1.5 },
+      ],
       [rightPointerScope.current, { y: 0, x: 300 }, { duration: 0.5 }],
       [
         rightPointerScope.current,
@@ -52,17 +56,27 @@ export default function Hero() {
         <motion.div
           ref={leftDesignScope}
           initial={{ opacity: 0, y: 100, x: -100 }}
+          drag
           className="absolute -left-64 top-16 hidden lg:block"
         >
-          <Image src={designExample1Image} alt="design example 1" />
+          <Image
+            src={designExample1Image}
+            draggable="false"
+            alt="design example 1"
+          />
         </motion.div>
 
         <motion.div
           ref={rightDesignScope}
-          initial={{ opacity: 0, y:200, x:100 }}
+          initial={{ opacity: 0, y: 200, x: 100 }}
+          drag
           className="absolute -top-16 -right-96 hidden lg:block"
         >
-          <Image src={designExample2Image} alt="design example 2" />
+          <Image
+            src={designExample2Image}
+            draggable="false"
+            alt="design example 2"
+          />
         </motion.div>
 
         <motion.div
@@ -75,7 +89,7 @@ export default function Hero() {
 
         <motion.div
           ref={rightPointerScope}
-          initial={{ opacity: 0, y: 200, x:400 }}
+          initial={{ opacity: 0, y: 200, x: 400 }}
           className="absolute right-54 hidden lg:block"
         >
           <Pointer name="Yadav" color="red" />
